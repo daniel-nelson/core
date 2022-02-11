@@ -106,9 +106,14 @@ export class HttpServer {
         this.application.logger.error('Port in use, closing server')
         process.exitCode = 1
         return
+      } else {
+        this.application.logger.error(error.code)
+        this.application.logger.error(error)
+        process.exitCode = 1
+        return
       }
 
-      await this.kill(3000)
+      // await this.kill(3000)
     })
   }
 
