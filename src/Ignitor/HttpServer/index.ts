@@ -107,8 +107,8 @@ export class HttpServer {
         process.exitCode = 1
         return
       } else {
-        this.application.logger.error(error.code)
-        this.application.logger.error(error)
+        this.application.logger.error(error.code || '')
+        this.application.logger.error(JSON.stringify(error))
         process.exitCode = 1
         return
       }
